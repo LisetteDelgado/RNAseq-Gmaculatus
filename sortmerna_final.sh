@@ -14,9 +14,12 @@ set -o xtrace
 #basename
 i=$1
 
+#make directory
 mkdir sortmerna_${i}
 
 echo "Running SortMeRNA for ${i}"
+
+#run sortmerna
 sortmerna \
   --ref /home/lisette/bioinformatic-tools/sortmerna/db/rfam-5.8s-database-id98.fasta \
   --ref /home/lisette/bioinformatic-tools/sortmerna/db/rfam-5s-database-id98.fasta \
@@ -34,7 +37,9 @@ sortmerna \
   --threads 8 -m 4000\
   --paired_in \
   --other "${i}_sortmerna" |&
-  tee /home/lisette/RNAseq/Brain/${i}_sortmerna.log
+#save log file
+  tee /home/lisette/RNAseq/Gill/${i}_sortmerna.log
 
+#gz forward and reverse outputs
 pigz -p8 ${i}_sortmerna_fwd.fq
 pigz -p8 ${i}_sortmerna_rev.fq
