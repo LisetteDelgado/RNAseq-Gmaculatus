@@ -1,6 +1,6 @@
 # RNAseq-Gmaculatus
 
-Brief overview of the pipeline used to analyzed RNAseq data of Galaxias maculatus' gill
+Brief overview of the pipeline used to analyze RNAseq data of Galaxias maculatus' gill
 
 Analyses were performed on a linux computer or Compute Canada (in the case the analyses were computational intensive).
 First, the quality of reads were checked using FastQC (Andrews 2010), then rRNA was removed using SortMeRNA (Kopylova et al. 2012) and reads were trimmed using trimmomatic (Bolger et al. 2014).
